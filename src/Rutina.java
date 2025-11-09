@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
+// Clase que representa una rutina de ejercicios para un usuario
 public class Rutina {
     private String nombreRutina;
     private ArrayList<Ejercicio> ejercicios;
@@ -9,32 +11,30 @@ public class Rutina {
         this.ejercicios = new ArrayList<>();
     }
 
-    public void agregarEjercicio(Ejercicio e) {
-        ejercicios.add(e);
+    public void agregarEjercicio(Ejercicio ejercicio) {
+        ejercicios.add(ejercicio);
     }
 
-    public String mostrarRutina() {
-        if (ejercicios.isEmpty()) {
-            return "La rutina no tiene ejercicios aún.";
-        }
+    public void mostrarRutina() {
         StringBuilder sb = new StringBuilder("Rutina: " + nombreRutina + "\n");
         for (Ejercicio e : ejercicios) {
-            sb.append("--------------------\n").append(e.mostrarInfo()).append("\n");
+            if (e instanceof EjercicioAvanzado) {
+                EjercicioAvanzado ea = (EjercicioAvanzado) e;
+                sb.append("• ").append(ea.getNombre())
+                  .append(" | ").append(ea.getGrupoMuscular())
+                  .append(" | Reps: ").append(ea.getRepeticiones())
+                  .append(" | Dificultad: ").append(ea.getNivelDificultad())
+                  .append("\n");
+            } else {
+                sb.append("• ").append(e.getNombre())
+                  .append(" | ").append(e.getGrupoMuscular())
+                  .append(" | Reps: ").append(e.getRepeticiones())
+                  .append("\n");
+            }
         }
-        return sb.toString();
-    }
-
-    public int calcularDuracionTotal() {
-        int total = 0;
-        for (Ejercicio e : ejercicios) {
-            total += e.getDuracion();
-        }
-        return total;
-    }
-
-    public int cantidadEjercicios() {
-        return ejercicios.size();
+        JOptionPane.showMessageDialog(null, sb.toString());
     }
 }
+
 
 

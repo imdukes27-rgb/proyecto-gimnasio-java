@@ -1,26 +1,24 @@
+// Clase que hereda de Ejercicio e incluye nivel de dificultad
 public class EjercicioAvanzado extends Ejercicio {
-    private int nivelDificultad; // 1 a 5
-    private String zonaMuscular;
+    private String nivelDificultad;
 
-    public EjercicioAvanzado(String nombre, String tipo, int duracion, int nivelDificultad, String zonaMuscular) {
-        super(nombre, tipo, duracion);
+    public EjercicioAvanzado(String nombre, String grupoMuscular, int repeticiones, String nivelDificultad) {
+        super(nombre, grupoMuscular, repeticiones);
         this.nivelDificultad = nivelDificultad;
-        this.zonaMuscular = zonaMuscular;
     }
 
-    public int getNivelDificultad() {
+    public String getNivelDificultad() {
         return nivelDificultad;
     }
 
-    public String getZonaMuscular() {
-        return zonaMuscular;
-    }
-
     @Override
-    public String mostrarInfo() {
-        return super.mostrarInfo() + "\nNivel de dificultad: " + nivelDificultad + 
-               "\nZona muscular: " + zonaMuscular;
+    public void mostrarInfo() {
+        System.out.println("Ejercicio Avanzado: " + nombre + 
+            " | Grupo muscular: " + grupoMuscular + 
+            " | Repeticiones: " + repeticiones + 
+            " | Dificultad: " + nivelDificultad);
     }
 }
+
 
 

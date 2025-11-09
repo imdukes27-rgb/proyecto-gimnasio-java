@@ -1,29 +1,32 @@
+// Clase base que representa un ejercicio general en el gimnasio
 public class Ejercicio {
     protected String nombre;
-    protected String tipo; // cardio, fuerza, etc.
-    protected int duracion; // en minutos
+    protected String grupoMuscular;
+    protected int repeticiones;
 
-    public Ejercicio(String nombre, String tipo, int duracion) {
+    public Ejercicio(String nombre, String grupoMuscular, int repeticiones) {
         this.nombre = nombre;
-        this.tipo = tipo;
-        this.duracion = duracion;
+        this.grupoMuscular = grupoMuscular;
+        this.repeticiones = repeticiones;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getGrupoMuscular() {
+        return grupoMuscular;
     }
 
-    public int getDuracion() {
-        return duracion;
+    public int getRepeticiones() {
+        return repeticiones;
     }
 
-    public String mostrarInfo() {
-        return "Ejercicio: " + nombre + "\nTipo: " + tipo + "\nDuración: " + duracion + " minutos";
+    public void mostrarInfo() {
+        System.out.println("Ejercicio: " + nombre + " | Grupo muscular: " + grupoMuscular + " | Repeticiones: " + repeticiones);
     }
 }
+
+
 
 
